@@ -1,4 +1,4 @@
--- This is where you custom modules and plugins goes.
+  -- This is where you custom modules and plugins goes.
 -- See the wiki for a guide on how to extend NvChad
 
 local hooks = require "core.hooks"
@@ -49,9 +49,21 @@ hooks.add("install_plugins", function(use)
       'ethanholz/nvim-lastplace',
         -- require'custom.plugins.lastplace'
         config =    function()
-          require'custom.plugins.lastplace'
+          require'custom.plugins.lastplace'.setup()
         end
     }
+
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugins.null-ls").setup()
+      end,
+   }
+   use {
+      "williamboman/nvim-lsp-installer",
+      }
+-- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
 end)
 
 

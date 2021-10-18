@@ -4,9 +4,8 @@ if not present then
    return
 end
 
-vim.opt.completeopt = "menuone,noselect"
-
--- nvim-cmp setup
-lastplace.setup {
-}
-return lastplace
+local M = {}
+M.setup = function()
+   lastplace.setup {}
+end
+return M
