@@ -23,7 +23,9 @@ local sources = {
    -- b.diagnostics.luacheck,
 
    -- Shell
-   b.formatting.shfmt,
+   b.formatting.shfmt.with {
+      extra_args = { "-i", "2", "-ci" },
+   },
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- black
