@@ -48,7 +48,7 @@ hooks.add("install_plugins", function(use)
     use {
       'ethanholz/nvim-lastplace',
         -- require'custom.plugins.lastplace'
-        config =    function()
+        config = function()
           require'custom.plugins.lastplace'.setup()
         end
     }
@@ -60,10 +60,18 @@ hooks.add("install_plugins", function(use)
          require("custom.plugins.null-ls").setup()
       end,
    }
+
    use {
       "williamboman/nvim-lsp-installer",
-      }
+    }
+   
+    use {
+      "liuchengxu/vista.vim",
+    }
 -- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
 end)
 
+hooks.add("setup_mappings", function(map)
+  map("n", "<leader>tb", ":Vista<CR>", opt)
+end)
 
