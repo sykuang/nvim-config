@@ -1,4 +1,4 @@
-  -- This is where you custom modules and plugins goes.
+-- This is where you custom modules and plugins goes.
 -- See the wiki for a guide on how to extend NvChad
 
 local hooks = require "core.hooks"
@@ -45,15 +45,15 @@ local hooks = require "core.hooks"
 --
 
 hooks.add("install_plugins", function(use)
-    use {
-      'ethanholz/nvim-lastplace',
-        -- require'custom.plugins.lastplace'
-        config = function()
-          require'custom.plugins.lastplace'.setup()
-        end
-    }
+   use {
+      "ethanholz/nvim-lastplace",
+      -- require'custom.plugins.lastplace'
+      config = function()
+         require("custom.plugins.lastplace").setup()
+      end,
+   }
 
-    use {
+   use {
       "jose-elias-alvarez/null-ls.nvim",
       after = "nvim-lspconfig",
       config = function()
@@ -68,10 +68,13 @@ hooks.add("install_plugins", function(use)
     use {
       "liuchengxu/vista.vim",
     }
--- load it after nvim-lspconfig , since we'll use some lspconfig stuff in the null-ls config!
+
+   use {
+      "bogado/file-line",
+   }
+
 end)
 
 hooks.add("setup_mappings", function(map)
   map("n", "<leader>tb", ":Vista<CR>", opt)
 end)
-
