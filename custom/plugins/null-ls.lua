@@ -17,19 +17,24 @@ local sources = {
    },
 
    -- Lua
-   b.formatting.stylua.with {
-      extra_args = { "--config-path", vim.fn.expand "~/.config/stylua.toml" },
+   b.formatting.stylua.with{
+     extra_args = { "--config-path", vim.fn.expand("~/.config/stylua.toml") },
    },
-   -- b.diagnostics.luacheck,
+   b.diagnostics.luacheck,
 
    -- Shell
-   b.formatting.shfmt.with {
-      extra_args = { "-i", "2", "-ci" },
-   },
+   b.formatting.shfmt,
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- black
-   b.formatting.black,
+   b.formatting.black.with {
+     filetypes = {"python"},
+   },
+
+   -- clang-format
+   b.formatting.clang_format.with{
+     filetypes = {"c", "cpp", "cs"}
+   }
 }
 
 local M = {}

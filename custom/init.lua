@@ -63,18 +63,50 @@ hooks.add("install_plugins", function(use)
 
    use {
       "williamboman/nvim-lsp-installer",
-    }
-   
-    use {
+   }
+
+   use {
       "liuchengxu/vista.vim",
-    }
+   }
 
    use {
       "bogado/file-line",
    }
 
+   use {
+     "nathom/filetype.nvim",
+     config = function()
+         require("custom.plugins.filetype").setup()
+      end,
+   }
+
+   -- use {
+   --    "Pocco81/HighStr.nvim",
+   --    config = function()
+   --       require("custom.plugins.highstr").setup()
+   --    end,
+   -- }
+
+   use {
+     "bfredl/nvim-miniyank"
+   }
 end)
 
 hooks.add("setup_mappings", function(map)
-  map("n", "<leader>tb", ":Vista<CR>", opt)
+   map("n", "<leader>tb", ":Vista<CR>", opt)
+   -- map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
 end)
+
+-- FIXME: Using lua to set keymap
+vim.cmd([[
+  cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+  cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+  cnoremap <expr> <Right> pumvisible() ? "\<Down>" : "\<Right>"
+  cnoremap <expr> <Left> pumvisible() ? "\<Up>" : "\<Left>"
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+  map <leader>p <Plug>(miniyank-startput)
+  map <leader>P <Plug>(miniyank-startPut)
+  map <leader>n <Plug>(miniyank-cycle)
+  map <leader>N <Plug>(miniyank-cycleback)
+]])
