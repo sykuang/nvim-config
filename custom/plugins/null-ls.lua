@@ -17,8 +17,8 @@ local sources = {
    },
 
    -- Lua
-   b.formatting.stylua.with{
-     extra_args = { "--config-path", vim.fn.expand("~/.config/stylua.toml") },
+   b.formatting.stylua.with {
+      extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/.stylua.toml" },
    },
    b.diagnostics.luacheck,
 
@@ -28,23 +28,22 @@ local sources = {
 
    -- black
    b.formatting.black.with {
-     filetypes = {"python"},
+      filetypes = { "python" },
    },
 
    -- clang-format
-   b.formatting.clang_format.with{
-     filetypes = {"c", "cpp", "cs"}
-   }
+   b.formatting.clang_format.with {
+      filetypes = { "c", "cpp", "cs" },
+   },
 }
 
 local M = {}
 
-M.setup = function(on_attach)
-   null_ls.config {
+M.setup = function()
+   null_ls.setup {
       sources = sources,
       debug = true,
    }
-   require("lspconfig")["null-ls"].setup { on_attach = on_attach }
 end
 
 return M
