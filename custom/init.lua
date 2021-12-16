@@ -80,12 +80,12 @@ hooks.add("install_plugins", function(use)
       end,
    }
 
-   -- use {
-   --    "Pocco81/HighStr.nvim",
-   --    config = function()
-   --       require("custom.plugins.highstr").setup()
-   --    end,
-   -- }
+   use {
+      "Pocco81/HighStr.nvim",
+      config = function()
+         require("custom.plugins.highstr").setup()
+      end,
+   }
 
    use {
      "bfredl/nvim-miniyank"
@@ -94,7 +94,8 @@ end)
 
 hooks.add("setup_mappings", function(map)
    map("n", "<leader>tb", ":Vista<CR>", opt)
-   -- map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
+   map("n", "<leader>gb", ":lua require'gitsigns'.blame_line()<CR>", opt)
+   map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
 end)
 
 -- FIXME: Using lua to set keymap

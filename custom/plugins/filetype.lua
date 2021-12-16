@@ -18,9 +18,10 @@ M.setup = function()
             -- Set the filetype of files named "MyBackupFile" to lua
             -- MyBackupFile = "lua",
          },
-         complex = {
+        complex = {
             -- Set the filetype of any full filename matching the regex to gitconfig
             [".*git/config"] = "gitconfig", -- Included in the plugin
+            ["init.d/S*"] = "sh", -- etc/init.d/S**
          },
 
          -- The same as the ones above except the keys map to functions
