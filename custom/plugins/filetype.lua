@@ -57,6 +57,7 @@ M.setup = function()
             -- Set the filetype of files with a dash shebang to sh
             dash = "sh",
             sh = "sh",
+            zsh = "sh",
          },
       },
    }
