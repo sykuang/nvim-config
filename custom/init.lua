@@ -74,8 +74,8 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
-     "nathom/filetype.nvim",
-     config = function()
+      "nathom/filetype.nvim",
+      config = function()
          require("custom.plugins.filetype").setup()
       end,
    }
@@ -88,7 +88,13 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
-     "bfredl/nvim-miniyank"
+      "AckslD/nvim-neoclip.lua",
+      requires = {
+         {'tami5/sqlite.lua', module = 'sqlite'},
+      },
+      config =function()
+         require("custom.plugins.neoclip").setup()
+      end,
    }
 end)
 
@@ -96,18 +102,14 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>tb", ":Vista<CR>", opt)
    map("n", "<leader>gb", ":lua require'gitsigns'.blame_line()<CR>", opt)
    map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
+   map("n", "<leader>c", "<cmd>lua require('custom.plugins.clipboardToggle').Toggle()<CR>", opt)
+   map("n", "<leader>p", "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", opt)
 end)
 
 -- FIXME: Using lua to set keymap
-vim.cmd([[
+vim.cmd [[
   cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
   cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
   cnoremap <expr> <Right> pumvisible() ? "\<Down>" : "\<Right>"
   cnoremap <expr> <Left> pumvisible() ? "\<Up>" : "\<Left>"
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
-  map <leader>p <Plug>(miniyank-startput)
-  map <leader>P <Plug>(miniyank-startPut)
-  map <leader>n <Plug>(miniyank-cycle)
-  map <leader>N <Plug>(miniyank-cycleback)
-]])
+]]
