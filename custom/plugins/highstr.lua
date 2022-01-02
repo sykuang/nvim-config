@@ -1,10 +1,12 @@
-local high_str = require "high-str"
-
+local ok, high_str = pcall(require, "high-str")
+if not ok then
+   return
+end
 local M = {}
 
 M.setup = function()
    high_str.setup({
-     verbosity = 1,
+     verbosity = 0,
      saving_path = "/tmp/highstr/",
      highlight_colors = {
        -- color_id = {"bg_hex_code",<"fg_hex_code"/"smart">}
@@ -20,15 +22,5 @@ M.setup = function()
        color_9 = {"#7d5c34", "smart"},	-- Fallow brown
      }
    })
-   vim.api.nvim_set_keymap(
-     "v",
-     "<leader>m",
-     "v:_G.smart_h()",
-     {
-         noremap = true,
-         silent = true
-     }
-     )
 end
-
 return M
