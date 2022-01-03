@@ -90,10 +90,17 @@ hooks.add("install_plugins", function(use)
    use {
       "AckslD/nvim-neoclip.lua",
       requires = {
-         {'tami5/sqlite.lua', module = 'sqlite'},
+         { "tami5/sqlite.lua", module = "sqlite" },
       },
-      config =function()
+      config = function()
          require("custom.plugins.neoclip").setup()
+      end,
+   }
+
+   use {
+      "folke/which-key.nvim",
+      config = function()
+         require("which-key").setup()
       end,
    }
 end)

@@ -34,7 +34,7 @@ M.plugins = {
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
    default_plugin_config_replace = {
-      telescope = "custom.plugins.telescope"
+      telescope = "custom.plugins.telescope",
    },
 }
 
