@@ -112,6 +112,7 @@ hooks.add("setup_mappings", function(map)
    map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
    map("n", "<leader>c", "<cmd>lua require('custom.plugins.clipboardToggle').Toggle()<CR>", opt)
    map("n", "<leader>p", "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", opt)
+   map("n", "<leader>i", ":IndentBlanklineToggle<CR>", opt)
 end)
 
 -- FIXME: Using lua to set keymap
