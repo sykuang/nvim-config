@@ -19,7 +19,7 @@ local sources = {
    b.formatting.stylua.with {
       extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/.stylua.toml" },
    },
-   b.diagnostics.luacheck,
+   -- b.diagnostics.luacheck,
 
    -- Shell
    b.formatting.shfmt,
@@ -30,10 +30,10 @@ local sources = {
       filetypes = { "python" },
    },
 
-   -- clang-format
-   b.formatting.clang_format.with {
-      filetypes = { "c", "cpp", "cs" },
-   },
+   -- -- clang-format
+   -- b.formatting.clang_format.with {
+   --    filetypes = { "c", "cpp", "cs" },
+   -- },
 }
 
 local M = {}
