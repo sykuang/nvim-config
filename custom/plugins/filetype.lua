@@ -22,6 +22,8 @@ M.setup = function()
             -- Set the filetype of any full filename matching the regex to gitconfig
             [".*git/config"] = "gitconfig", -- Included in the plugin
             ["init.d/S*"] = "sh", -- etc/init.d/S**
+            ["root/projects"] = "json", -- root/projects
+            ["panelhdr_*"] = "json", -- root/projects
          },
 
          -- The same as the ones above except the keys map to functions
@@ -34,13 +36,18 @@ M.setup = function()
                 autocmd FileType lua setlocal shiftwidth=3 tabstop=3
                 ]]
             end,
-            --     ["pdf"] = function()
-            --         vim.bo.filetype = "pdf"
-            --         -- Open in PDF viewer (Skim.app) automatically
-            --         vim.fn.jobstart(
-            --             "open -a skim " .. '"' .. vim.fn.expand("%") .. '"'
-            --         )
-            --     end,
+            ["c"] = function()
+               vim.bo.filetype = "c"
+               vim.cmd [[
+                autocmd FileType c setlocal shiftwidth=4 tabstop=4
+                ]]
+             end,
+            ["cpp"] = function()
+               vim.bo.filetype = "cpp"
+               vim.cmd [[
+                autocmd FileType cpp setlocal shiftwidth=4 tabstop=4
+                ]]
+             end,
          },
          -- function_literal = {
          --     Brewfile = function()

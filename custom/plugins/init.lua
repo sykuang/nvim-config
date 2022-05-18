@@ -1,6 +1,5 @@
 return {
-   {
-      "ethanholz/nvim-lastplace",
+   ["ethanholz/nvim-lastplace"] = {
       config = function()
          require("nvim-lastplace").setup {
             lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -9,36 +8,31 @@ return {
          }
       end,
    },
-   {
-      "jose-elias-alvarez/null-ls.nvim",
+   ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
          require("custom.plugins.null-ls").setup()
       end,
    },
-   {
-      "williamboman/nvim-lsp-installer",
+   ["liuchengxu/vista.vim"] = {
+      config = function()
+         require("custom.plugins.vista").setup()
+      end,
    },
-   {
-      "liuchengxu/vista.vim",
-   },
-   -- {
-   --    "bogado/file-line",
-   -- },
-   {
-      "nathom/filetype.nvim",
+   ["bogado/file-line"] = {},
+   ["nathom/filetype.nvim"] = {
       config = function()
          require("custom.plugins.filetype").setup()
       end,
    },
-   {
-      "Pocco81/HighStr.nvim",
-      config = function()
-         require("custom.plugins.highstr").setup()
-      end,
-   },
-   {
-      "AckslD/nvim-neoclip.lua",
+   -- {
+   --    "Pocco81/HighStr.nvim",
+   --    config = function()
+   --       require("custom.plugins.highstr").setup()
+   --    end,
+   -- },
+   -- {
+   ["AckslD/nvim-neoclip.lua"] = {
       requires = {
          { "tami5/sqlite.lua", module = "sqlite" },
       },
@@ -46,10 +40,12 @@ return {
          require("custom.plugins.neoclip").setup()
       end,
    },
-   {
-      "folke/which-key.nvim",
-      config = function()
-         require("which-key").setup()
-      end,
+   ["chooh/brightscript.vim"] = {},
+   override = {
+      -- ["nvim-telescope/telescope.nvim"] = {
+         -- mappings = {
+            -- map("n", "<leader>ts", "<cmd> :Telescope themes <CR>"),
+         -- },
+      -- },
    },
 }

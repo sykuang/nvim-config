@@ -23,17 +23,17 @@ local sources = {
 
    -- Shell
    b.formatting.shfmt,
-   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+   -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- black
    b.formatting.black.with {
       filetypes = { "python" },
    },
 
-   -- -- clang-format
-   -- b.formatting.clang_format.with {
-   --    filetypes = { "c", "cpp", "cs" },
-   -- },
+   -- clang-format
+   b.formatting.clang_format.with {
+      filetypes = { "c", "cpp", "cs" },
+   },
 }
 
 local M = {}
@@ -43,6 +43,7 @@ M.setup = function()
       sources = sources,
       debug = true,
    }
+   vim.g.null_ls_disable = true
 end
 
 return M
