@@ -9,6 +9,12 @@ M.plugins = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
+   override = {
+      ["lukas-reineke/indent-blankline.nvim"] = {
+         show_current_context = true,
+         show_current_context_start = true,
+      },
+   },
 }
 
 M.mappings = require "custom.mappings"
