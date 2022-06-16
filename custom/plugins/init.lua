@@ -14,11 +14,6 @@ return {
          require("custom.plugins.null-ls").setup()
       end,
    },
-   ["liuchengxu/vista.vim"] = {
-      config = function()
-         require("custom.plugins.vista").setup()
-      end,
-   },
    ["bogado/file-line"] = {},
    ["nathom/filetype.nvim"] = {
       config = function()
@@ -40,12 +35,6 @@ return {
          require("custom.plugins.neoclip").setup()
       end,
    },
+   ["simrat39/symbols-outline.nvim"] = {},
    ["chooh/brightscript.vim"] = {},
-   override = {
-      -- ["nvim-telescope/telescope.nvim"] = {
-         -- mappings = {
-            -- map("n", "<leader>ts", "<cmd> :Telescope themes <CR>"),
-         -- },
-      -- },
-   },
 }
