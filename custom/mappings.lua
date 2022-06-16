@@ -17,7 +17,7 @@ M.telescope = {
 
 M.gitsigns = {
    n = {
-      ["<leader>gb"] = { ":lua require'gitsigns'.blame_line() <CR>", " git blame current line" },
+      ["<leader>gb"] = { ":Gitsigns toggle_current_line_blame<CR>", " git blame current line" },
       ["]c"] = { "<cmd> Gitsigns next_hunk <CR>", " next git hunk" },
       ["[c"] = { "<cmd> Gitsigns prev_hunk <CR>", " previoues git hunk" },
    },
@@ -33,6 +33,10 @@ M.lspconfig = {
    v = {
       ["<leader>fm"] = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", " range formatting" },
    },
+   n={
+      ["g0"] = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", " List document symbols" },
+      ["gw"] = { "<cmd>lua vim.lsp.buf.workspace_symbol(", " List worksapce symbols" },
+   }
 }
 
 M.misc = {
@@ -45,10 +49,11 @@ M.misc = {
    },
 }
 
-M.vista = {
+M.SymbolsOutline = {
    n = {
-      ["<leader>tb"] = { ":Vista<CR>", "Toggle Symbol list" },
+      ["<leader>tb"] = { ":SymbolsOutline<CR>", "Toggle Symbol outline" },
    },
 }
+
 
 return M
