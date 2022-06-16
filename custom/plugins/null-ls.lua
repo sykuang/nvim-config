@@ -22,7 +22,9 @@ local sources = {
    -- b.diagnostics.luacheck,
 
    -- Shell
-   b.formatting.shfmt,
+   b.formatting.shfmt.with {
+      extra_args = { "-s","-i","2" },
+   },
    -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- black
@@ -43,7 +45,7 @@ M.setup = function()
       sources = sources,
       debug = true,
    }
-   vim.g.null_ls_disable = true
+   -- vim.g.null_ls_disable = true
 end
 
 return M
