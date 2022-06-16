@@ -12,17 +12,20 @@ M.setup = function()
       overrides = {
          extensions = {
             -- Set the filetype of *.pn files to potion
-            -- pn = "potion",
+            zshrc = "sh",
          },
          literal = {
             -- Set the filetype of files named "MyBackupFile" to lua
             -- MyBackupFile = "lua",
          },
-        complex = {
+         complex = {
             -- Set the filetype of any full filename matching the regex to gitconfig
             [".*git/config"] = "gitconfig", -- Included in the plugin
+            [".zshrc"] = "sh", -- root/projects
             ["init.d/S*"] = "sh", -- etc/init.d/S**
+            -- Roku stuffs
             ["root/projects"] = "json", -- root/projects
+            ["shared/board/Base"] = "json", -- root/projects
             ["panelhdr_*"] = "json", -- root/projects
          },
 
@@ -41,13 +44,20 @@ M.setup = function()
                vim.cmd [[
                 autocmd FileType c setlocal shiftwidth=4 tabstop=4
                 ]]
-             end,
+            end,
             ["cpp"] = function()
                vim.bo.filetype = "cpp"
                vim.cmd [[
                 autocmd FileType cpp setlocal shiftwidth=4 tabstop=4
                 ]]
-             end,
+            end,
+            ["zsh"] = function()
+               vim.bo.filetype = "sh"
+               vim.cmd [[
+                autocmd FileType sh setlocal shiftwidth=2 tabstop=2
+                ]]
+               vim.cmd [[ set expandtab ]]
+            end,
          },
          -- function_literal = {
          --     Brewfile = function()
