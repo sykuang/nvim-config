@@ -1,11 +1,7 @@
 return {
    ["ethanholz/nvim-lastplace"] = {
       config = function()
-         require("nvim-lastplace").setup {
-            lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-            lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-            lastplace_open_folds = true,
-         }
+         require("custom.plugins.lastplace").setup()
       end,
    },
    ["jose-elias-alvarez/null-ls.nvim"] = {
@@ -37,4 +33,7 @@ return {
    },
    ["simrat39/symbols-outline.nvim"] = {},
    ["chooh/brightscript.vim"] = {},
+   ["kyazdani42/nvim-tree.lua"] = {
+      event = "BufWinEnter",
+   },
 }

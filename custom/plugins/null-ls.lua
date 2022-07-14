@@ -23,7 +23,7 @@ local sources = {
 
    -- Shell
    b.formatting.shfmt.with {
-      extra_args = { "-s","-i","2" },
+      extra_args = { "-s", "-i", "2" },
    },
    -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 

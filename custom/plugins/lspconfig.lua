@@ -4,7 +4,7 @@ M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
    -- lspservers with default config
-   local servers = { "bashls", "html", "cssls", "clangd", "pylsp", "sourcery" }
+   local servers = { "bashls", "html", "cssls", "clangd", "pylsp" }
 
    lspconfig.sourcery.setup {
       init_options = {

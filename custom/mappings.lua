@@ -11,13 +11,16 @@ local M = {}
 M.telescope = {
    n = {
       ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "  find media" },
-      ["<leader>fg"] = { ":Telescope current_buffer_fuzzy_find<CR>", "� Fuzzy find in current buffer" },
+      ["<leader>fg"] = { "<cmd> Telescope current_buffer_fuzzy_find<CR>", "� Fuzzy find in current buffer" },
+      ["gD"] = { "<cmd> Telescope lsp_definitions<CR>", "� Goto the definition of the word under the cursor" },
+      ["gr"] = { "<cmd> Telescope lsp_references<CR>", "� Lists LSP references for word under the cursor" },
+      ["<leader>wb"] = { "<cmd> Telescope lsp_workspace_symbols<CR>", "� Lists LSP document symbols in the current workspace" },
    },
 }
 
 M.gitsigns = {
    n = {
-      ["<leader>gb"] = { ":Gitsigns toggle_current_line_blame<CR>", " git blame current line" },
+      ["<leader>gb"] = { "<cmd> Gitsigns toggle_current_line_blame<CR>", " git blame current line" },
       ["]c"] = { "<cmd> Gitsigns next_hunk <CR>", " next git hunk" },
       ["[c"] = { "<cmd> Gitsigns prev_hunk <CR>", " previoues git hunk" },
    },
@@ -25,7 +28,7 @@ M.gitsigns = {
 
 M.neoclip = {
    n = {
-      ["<leader>pb"] = { ":lua require('telescope').extensions.neoclip.default()<CR>", "show neoclip board" },
+      ["<leader>pb"] = { "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", "show neoclip board" },
    },
 }
 
