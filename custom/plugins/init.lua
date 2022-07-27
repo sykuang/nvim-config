@@ -16,13 +16,6 @@ return {
       require("custom.plugins.filetype").setup()
     end,
   },
-  -- {
-  --    "Pocco81/HighStr.nvim",
-  --    config = function()
-  --       require("custom.plugins.highstr").setup()
-  --    end,
-  -- },
-  -- {
   ["AckslD/nvim-neoclip.lua"] = {
     requires = {
       { "tami5/sqlite.lua", module = "sqlite" },
@@ -40,6 +33,11 @@ return {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
+    end,
+  },
+  ["lewis6991/spellsitter.nvim"] = {
+    config = function()
+      require("spellsitter").setup()
     end,
   },
 }
