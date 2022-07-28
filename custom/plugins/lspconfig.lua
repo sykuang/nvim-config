@@ -8,7 +8,7 @@ local servers = { "clangd", "pylsp" }
 
 lspconfig.sourcery.setup {
   init_options = {
-    token = "user__i6gczBllHakIGAswG_cGpine88dps__CvXsVUQY9kJRBe0pl1QJ4JjYZE8",
+    token = "user_C0NHmzz9hO729bd7WcuaMdmqwDUQWsR6PDHDfYfJyRCqZd4nRGb05sr8ZcQ",
     editor_version = "vim",
     extension_version = "vim.lsp",
   },
