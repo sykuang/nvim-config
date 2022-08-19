@@ -29,6 +29,9 @@ M.plugins = {
         "shellcheck",
         -- C/C++
         "clangd",
+        -- python
+        "sourcery",
+        "python-lsp-server",
       },
     },
   },

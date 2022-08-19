@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- lspservers with default config
-local servers = { "clangd", "pylsp" }
+local servers = { "clangd", "pylsp", "yamlls" }
 
 lspconfig.sourcery.setup {
   init_options = {
@@ -15,7 +15,7 @@ lspconfig.sourcery.setup {
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = attach,
+    on_attach = on_attach,
     capabilities = capabilities,
   }
 end

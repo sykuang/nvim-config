@@ -17,8 +17,9 @@ return {
     end,
   },
   ["AckslD/nvim-neoclip.lua"] = {
+    opt = false,
     requires = {
-      { "tami5/sqlite.lua", module = "sqlite" },
+      { "nvim-telescope/telescope.nvim" },
     },
     config = function()
       require("custom.plugins.neoclip").setup()
@@ -39,5 +40,8 @@ return {
     config = function()
       require("spellsitter").setup()
     end,
+  },
+  ["folke/which-key.nvim"] = {
+    disable = false,
   },
 }
