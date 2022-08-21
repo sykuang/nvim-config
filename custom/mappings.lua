@@ -31,7 +31,7 @@ M.gitsigns = {
 
 M.neoclip = {
   n = {
-    ["<leader>pb"] = { "<cmd>lua require('telescope').extensions.neoclip.default()<CR>", "show neoclip board" },
+    ["<leader>pb"] = { ":lua require('telescope').load_extension('neoclip')<CR>:Telescope neoclip<CR>", "show neoclip board" },
   },
 }
 
