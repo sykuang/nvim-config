@@ -4,10 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- lspservers with default config
-local servers = { "clangd", "yamlls", "pylsp", "sourcery" }
+local servers = { "clangd", "yamlls", "pylsp", "sourcery", "bashls" }
 
-lspconfig.sourcery.setup {}
-lspconfig.pylsp.setup {}
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
     lspconfig[lsp].setup {
