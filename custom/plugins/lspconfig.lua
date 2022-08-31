@@ -5,7 +5,6 @@ local lspconfig = require "lspconfig"
 
 -- lspservers with default config
 local servers = { "clangd", "yamlls", "pylsp", "sourcery", "bashls" }
-
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
     lspconfig[lsp].setup {
