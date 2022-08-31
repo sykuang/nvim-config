@@ -10,7 +10,7 @@ local sources = {
 
   -- JS html css stuff
   b.formatting.prettierd.with {
-    filetypes = { "html", "json", "markdown", "css", "javascript", "javascriptreact", "typescript" },
+    filetypes = { "html", "json", "markdown", "css", "javascript", "javascriptreact", "typescript", "yaml" },
   },
   b.diagnostics.tsc,
   b.diagnostics.jsonlint,
@@ -35,9 +35,6 @@ local sources = {
   -- clang-format
   b.formatting.clang_format.with {
     filetypes = { "c", "cpp", "cs" },
-  },
-  b.formatting.prettier.with {
-    filetypes = { "html", "json", "yaml", "markdown" },
   },
 }
 
