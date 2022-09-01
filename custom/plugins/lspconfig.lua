@@ -22,15 +22,20 @@ for _, lsp in ipairs(servers) do
       },
     }
   elseif lsp == "sourcery" then
-    lspconfig[lsp].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      init_options = {
-        token = "user_C0NHmzz9hO729bd7WcuaMdmqwDUQWsR6PDHDfYfJyRCqZd4nRGb05sr8ZcQ",
-        editor_version = "vim",
-        extension_version = "vim.lsp",
-      },
-    }
+    local sourcery_token = os.getenv "SOURCERY_TOKEN"
+    if sourcery_token ~= "" then
+      lspconfig[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        init_options = {
+          token = sourcery_token,
+          editor_version = "vim",
+          extension_version = "vim.lsp",
+        },
+      }
+    else
+      print "Please add SOURCERY_TOKEN to Enviroment for using sourcery."
+    end
   else
     lspconfig[lsp].setup {
       on_attach = on_attach,
