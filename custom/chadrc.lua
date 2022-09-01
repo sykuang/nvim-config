@@ -32,6 +32,8 @@ M.plugins = {
         -- python
         "sourcery",
         "python-lsp-server",
+        -- bashls
+        "bash-language-server"
       },
     },
   },
