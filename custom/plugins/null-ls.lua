@@ -25,6 +25,7 @@ local sources = {
   b.formatting.shfmt.with {
     extra_args = { "-s", "-i", "2" },
   },
+  b.diagnostics.zsh,
 
   -- black
   b.formatting.black.with {

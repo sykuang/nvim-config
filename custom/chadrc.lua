@@ -19,7 +19,7 @@ M.plugins = {
       },
       current_line_blame_formatter = "<abbrev_sha> <author>, <author_time:%Y-%m-%d> - <summary>",
     },
-    ["williamboman/mason"] = {
+    ["williamboman/mason.nvim"] = {
       ensure_installed = {
         -- lua stuff
         "lua-language-server",
@@ -33,7 +33,9 @@ M.plugins = {
         "sourcery",
         "python-lsp-server",
         -- bashls
-        "bash-language-server"
+        "bash-language-server",
+        -- yaml css ...
+        "prettierd",
       },
     },
   },
