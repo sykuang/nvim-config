@@ -1,44 +1,29 @@
----
-name: Submodule Updates
+name: 'Submodule Notify Parent'
 
-#############################
-# Start the job on all push #
-#############################
 on:
   push:
-    branches: [master, main]
-  pull_request:
-    branches: [master, main]
+    branches:
+      - master    
 
-###############
-# Set the Job #
-###############
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
-  build:
-    name: Submodule update
+  notify:
+    name: 'Submodule Notify Parent'
     runs-on: ubuntu-latest
-    env:
-      PARENT_REPOSITORY: 'sykuang/dotfiles'
-      CHECKOUT_BRANCH: 'master'
-      PR_AGAINST_BRANCH: 'master'
-      OWNER: 'sykuang'
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      ####################################
-      # Run the action against code base #
-      ####################################
-      - name: run action
-        id: run_action
-        uses: releasehub-com/github-action-create-pr-parent-submodule@v1
-        with:
-          github_token: ${{ secrets.RELEASE_HUB_SECRET }}
-          parent_repository: ${{ env.PARENT_REPOSITORY }}
-          checkout_branch: ${{ env.CHECKOUT_BRANCH}}
-          pr_against_branch: ${{ env.PR_AGAINST_BRANCH }}
-          owner: ${{ env.OWNER }}
+    - name: Github REST API Call
+      env:
+        CI_TOKEN: ${{ secrets.DOTFILES_TOKEN }}
+        PARENT_REPO: sykuang/dotfiles
+        PARENT_BRANCH: master
+        WORKFLOW_ID: 33773246
+      run: |
+        curl -fL --retry 3 -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ env.CI_TOKEN }}" https://api.github.com/repos/${{ env.PARENT_REPO }}/actions/workflows/${{ env.WORKFLOW_ID }}/dispatches -d '{"ref":"${{ env.PARENT_BRANCH }}"}'
