@@ -12,7 +12,7 @@ M.setup = function()
     overrides = {
       extensions = {
         -- Set the filetype of *.pn files to potion
-        zshrc = "sh",
+        zshrc = "zsh",
       },
       literal = {
         -- Set the filetype of files named "MyBackupFile" to lua
@@ -21,7 +21,6 @@ M.setup = function()
       complex = {
         -- Set the filetype of any full filename matching the regex to gitconfig
         [".*git/config"] = "gitconfig", -- Included in the plugin
-        [".zshrc"] = "sh", -- root/projects
         ["init.d/S*"] = "sh", -- etc/init.d/S**
         -- Roku stuffs
         ["root/projects"] = "json", -- root/projects
@@ -52,7 +51,7 @@ M.setup = function()
                 ]]
         end,
         ["zsh"] = function()
-          vim.bo.filetype = "sh"
+          vim.bo.filetype = "zsh"
           vim.cmd [[
                 autocmd FileType sh setlocal shiftwidth=2 tabstop=2
                 ]]

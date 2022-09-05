@@ -14,7 +14,8 @@ local sources = {
   },
   b.diagnostics.tsc,
   b.diagnostics.jsonlint,
-
+  b.diagnostics.zsh,
+  b.formatting.beautysh,
   -- Lua
   b.formatting.stylua.with {
     extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/.stylua.toml" },
@@ -37,15 +38,7 @@ local sources = {
     filetypes = { "c", "cpp", "cs" },
   },
 }
-
-local M = {}
-
-M.setup = function()
-  null_ls.setup {
-    sources = sources,
-    debug = true,
-  }
-  -- vim.g.null_ls_disable = true
-end
-
-return M
+null_ls.setup {
+  debug = true,
+  sources = sources,
+}

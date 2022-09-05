@@ -35,11 +35,15 @@ M.gitsigns = {
 
 M.neoclip = {
   n = {
-    ["<leader>pb"] = { ":lua require('telescope').load_extension('neoclip')<CR>:Telescope neoclip<CR>", "show neoclip board" },
+    ["<leader>pb"] = {
+      ":lua require('telescope').load_extension('neoclip')<CR>:Telescope neoclip<CR>",
+      "show neoclip board",
+    },
   },
 }
 
 M.lspconfig = {
+  plugin = false,
   v = {
     ["<leader>fm"] = { "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", "range formatting" },
   },
@@ -57,6 +61,12 @@ M.misc = {
     },
     ["<leader>i"] = { ":IndentBlanklineToggle<CR>", "Toggle Indent blank lines" },
     ["<leader>sp"] = { ":set spell!<CR>", "Toggle spell checking" },
+    ["<leader>lz"] = {
+      function()
+        require("nvterm.terminal").send("lazygit", "vertical")
+      end,
+      "nvterm lazygit",
+    },
   },
 }
 
