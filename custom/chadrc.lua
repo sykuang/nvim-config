@@ -36,6 +36,9 @@ M.plugins = {
         "bash-language-server",
         -- yaml css ...
         "prettierd",
+        "yaml-language-server",
+        -- json
+        "json-lsp",
       },
     },
   },

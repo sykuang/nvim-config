@@ -13,9 +13,11 @@ local sources = {
     filetypes = { "html", "json", "markdown", "css", "javascript", "javascriptreact", "typescript", "yaml" },
   },
   b.diagnostics.tsc,
-  b.diagnostics.jsonlint,
+
+  -- zsh
   b.diagnostics.zsh,
   b.formatting.beautysh,
+
   -- Lua
   b.formatting.stylua.with {
     extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/.stylua.toml" },
@@ -28,12 +30,12 @@ local sources = {
   },
   b.diagnostics.zsh,
 
-  -- black
+  -- python
   b.formatting.black.with {
     filetypes = { "python" },
   },
 
-  -- clang-format
+  -- c/c++
   b.formatting.clang_format.with {
     filetypes = { "c", "cpp", "cs" },
   },
