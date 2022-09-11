@@ -39,6 +39,8 @@ M.plugins = {
         "yaml-language-server",
         -- json
         "json-lsp",
+        -- Dockerfile
+        "hadolint",
       },
     },
   },

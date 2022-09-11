@@ -15,8 +15,6 @@ local sources = {
   b.diagnostics.tsc,
 
   -- zsh
-  b.diagnostics.zsh,
-  b.formatting.beautysh,
 
   -- Lua
   b.formatting.stylua.with {
@@ -25,10 +23,11 @@ local sources = {
   -- b.diagnostics.luacheck,
 
   -- Shell
-  b.formatting.shfmt.with {
-    extra_args = { "-s", "-i", "2" },
-  },
   b.diagnostics.zsh,
+  b.diagnostics.shellcheck,
+  b.formatting.beautysh.with {
+    extra_args = { "--indent-size", "2" },
+  },
 
   -- python
   b.formatting.black.with {
@@ -39,6 +38,9 @@ local sources = {
   b.formatting.clang_format.with {
     filetypes = { "c", "cpp", "cs" },
   },
+
+  -- Dockerfile
+  b.diagnostics.hadolint,
 }
 null_ls.setup {
   debug = true,

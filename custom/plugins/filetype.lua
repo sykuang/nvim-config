@@ -57,6 +57,13 @@ M.setup = function()
                 ]]
           vim.cmd [[ set expandtab ]]
         end,
+        ["sh"] = function()
+          vim.bo.filetype = "sh"
+          vim.cmd [[
+                autocmd FileType sh setlocal shiftwidth=2 tabstop=2
+                ]]
+          vim.cmd [[ set expandtab ]]
+        end,
       },
       -- function_literal = {
       --     Brewfile = function()
