@@ -25,7 +25,11 @@ return {
       require("custom.plugins.neoclip").setup()
     end,
   },
-  ["simrat39/symbols-outline.nvim"] = {},
+  ["simrat39/symbols-outline.nvim"] = {
+    config = function()
+      require("symbols-outline").setup({})
+    end,
+  },
   ["chooh/brightscript.vim"] = {},
   ["kyazdani42/nvim-tree.lua"] = {
     event = "BufWinEnter",
