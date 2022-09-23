@@ -36,6 +36,13 @@ for _, lsp in ipairs(servers) do
     else
       print "Please add SOURCERY_TOKEN to Enviroment for using sourcery."
     end
+  elseif lsp == "clangd" then
+    local clangd_capabilities = capabilities
+    clangd_capabilities.offsetEncoding = { "utf-16" }
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = clangd_capabilities,
+    }
   else
     lspconfig[lsp].setup {
       on_attach = on_attach,
