@@ -26,6 +26,7 @@ M.setup = function()
         ["root/projects"] = "json", -- root/projects
         ["shared/board/Base"] = "json", -- root/projects
         ["panelhdr_*"] = "json", -- root/projects
+        ["tcon_config_*"] = "json", -- root/projects
       },
 
       -- The same as the ones above except the keys map to functions

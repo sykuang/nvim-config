@@ -10,11 +10,12 @@ local sources = {
 
   -- JS html css stuff
   b.formatting.prettierd.with {
-    filetypes = { "html", "json", "markdown", "css", "javascript", "javascriptreact", "typescript", "yaml" },
+    filetypes = { "html", "markdown", "css", "javascript", "javascriptreact", "typescript", "yaml" },
   },
   b.diagnostics.tsc,
 
-  -- zsh
+  -- JSON
+  b.formatting.fixjson,
 
   -- Lua
   b.formatting.stylua.with {
