@@ -42,6 +42,9 @@ M.plugins = {
         "fixjson",
         -- Dockerfile
         "hadolint",
+        "dockerfile-language-server",
+        -- grammarly
+        "grammarly-languageserver",
       },
     },
   },
