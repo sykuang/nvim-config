@@ -45,6 +45,9 @@ M.plugins = {
         "dockerfile-language-server",
         -- grammarly
         "grammarly-languageserver",
+        -- spell
+        "codespell",
+        "misspell",
       },
     },
   },

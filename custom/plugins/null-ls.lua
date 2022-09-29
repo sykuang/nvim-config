@@ -42,7 +42,13 @@ local sources = {
 
   -- Dockerfile
   b.diagnostics.hadolint,
+
+  -- Spell
+  b.completion.spell,
+  b.diagnostics.codespell,
+  b.diagnostics.misspell,
 }
+
 null_ls.setup {
   debug = true,
   sources = sources,
