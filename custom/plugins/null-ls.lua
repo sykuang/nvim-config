@@ -46,7 +46,6 @@ local sources = {
   -- Spell
   b.completion.spell,
   b.diagnostics.codespell,
-  b.diagnostics.misspell,
 }
 
 null_ls.setup {

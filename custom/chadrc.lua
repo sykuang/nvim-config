@@ -47,7 +47,6 @@ M.plugins = {
         "grammarly-languageserver",
         -- spell
         "codespell",
-        "misspell",
       },
     },
   },

@@ -34,7 +34,7 @@ for _, lsp in ipairs(servers) do
         },
       }
     else
-      print "Please add SOURCERY_TOKEN to Enviroment for using sourcery."
+      print "Please add SOURCERY_TOKEN to Environment for using sourcery."
     end
   elseif lsp == "grammarly" then
       lspconfig[lsp].setup {
