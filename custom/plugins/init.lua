@@ -1,4 +1,25 @@
+local overrides = require "custom.plugins.overrides"
 return {
+  ----------------------------------------- default plugins ------------------------------------------
+  ["williamboman/mason.nvim"] = {
+    override_options = overrides.mason,
+  },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    override_options = overrides.blankline,
+  },
+  ["lewis6991/gitsigns.nvim"] = {
+    override_options = overrides.gitsigns,
+  },
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+  },
+  --------------------------------------------- custom plugins ----------------------------------------------
   ["ethanholz/nvim-lastplace"] = {
     config = function()
       require("custom.plugins.lastplace").setup()
@@ -27,18 +48,12 @@ return {
   },
   ["simrat39/symbols-outline.nvim"] = {
     config = function()
-      require("symbols-outline").setup({})
+      require("symbols-outline").setup {}
     end,
   },
   ["chooh/brightscript.vim"] = {},
   ["kyazdani42/nvim-tree.lua"] = {
     event = "BufWinEnter",
-  },
-  ["neovim/nvim-lspconfig"] = {
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
-    end,
   },
   ["lewis6991/spellsitter.nvim"] = {
     config = function()
