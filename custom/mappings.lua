@@ -45,7 +45,12 @@ M.neoclip = {
 M.lspconfig = {
   plugin = false,
   v = {
-    ["<leader>fm"] = { "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", "range formatting" },
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "range formatting",
+    },
   },
   n = {
     ["g0"] = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", "List document symbols" },

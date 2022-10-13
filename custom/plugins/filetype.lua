@@ -17,6 +17,7 @@ M.setup = function()
       literal = {
         -- Set the filetype of files named "MyBackupFile" to lua
         -- MyBackupFile = "lua",
+        COMMIT_EDITMSG = "COMMIT_EDITMSG",
       },
       complex = {
         -- Set the filetype of any full filename matching the regex to gitconfig

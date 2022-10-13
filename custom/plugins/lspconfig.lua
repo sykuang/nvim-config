@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- lspservers with default config
-local servers = { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls" ,'dockerls','grammarly'}
+local servers = { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls", "dockerls", "grammarly" }
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
     lspconfig[lsp].setup {
@@ -37,12 +37,10 @@ for _, lsp in ipairs(servers) do
       print "Please add SOURCERY_TOKEN to Environment for using sourcery."
     end
   elseif lsp == "grammarly" then
-      lspconfig[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        init_options = {
-          clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
-        },
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "markdown", "COMMIT_EDITMSG" },
     }
   elseif lsp == "clangd" then
     local clangd_capabilities = capabilities
