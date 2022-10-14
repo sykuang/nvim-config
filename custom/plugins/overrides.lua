@@ -53,8 +53,14 @@ M.treesitter = {
     "toml",
     "markdown",
     "c",
+    "cpp",
+    "python",
+    "rust",
     "bash",
     "lua",
+    "typescript",
+    "yaml",
+    "javascript",
   },
 }
 return M
