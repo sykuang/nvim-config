@@ -1,4 +1,3 @@
--- map("v", "<leader>m", ":<c-u>HSHighlight 1<CR>", opt)
 vim.cmd [[
   cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
   cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
@@ -20,7 +19,7 @@ M.telescope = {
     ["gr"] = { "<cmd> Telescope lsp_references<CR>", "Lists LSP references for word under the cursor" },
     ["<leader>wb"] = {
       "<cmd> Telescope lsp_workspace_symbols<CR>",
-      "� Lists LSP document symbols in the current workspace",
+      "Lists LSP document symbols in the current workspace",
     },
   },
 }
@@ -54,7 +53,7 @@ M.lspconfig = {
   },
   n = {
     ["g0"] = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", "List document symbols" },
-    ["gw"] = { "<cmd>lua vim.lsp.buf.workspace_symbol(", "List worksapce symbols" },
+    ["gw"] = { "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "List worksapce symbols" },
   },
 }
 
