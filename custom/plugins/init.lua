@@ -19,6 +19,9 @@ return {
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
   },
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
   --------------------------------------------- custom plugins ----------------------------------------------
   ["ethanholz/nvim-lastplace"] = {
     config = function()
@@ -62,5 +65,8 @@ return {
   },
   ["folke/which-key.nvim"] = {
     disable = false,
+  },
+  ["nvim-telescope/telescope-fzf-native.nvim"] = {
+    run="cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
 }
