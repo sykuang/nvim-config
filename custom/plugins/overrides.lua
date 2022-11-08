@@ -12,6 +12,7 @@ M.mason = {
     -- python
     "sourcery",
     "python-lsp-server",
+    "black",
     -- bashls
     "bash-language-server",
     -- yaml css ...
@@ -49,7 +50,6 @@ M.treesitter = {
   ensure_installed = {
     "vim",
     "html",
-    "json",
     "toml",
     "markdown",
     "c",
@@ -61,6 +61,14 @@ M.treesitter = {
     "typescript",
     "yaml",
     "javascript",
+    "make",
+    "cmake",
+    "diff",
+    "git_rebase",
+    "gitattributes",
+    "help",
+    "jsonc",
+    "dockerfile",
   },
 }
 M.telescope = {
