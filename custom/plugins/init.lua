@@ -67,8 +67,12 @@ return {
     disable = false,
   },
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
-    run="cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
-  ["ntpeters/vim-better-whitespace"] = {
+  ["ntpeters/vim-better-whitespace"] = {},
+  ["nmac427/guess-indent.nvim"] = {
+    config = function()
+      require("custom.plugins.guess-indent").setup()
+    end,
   },
 }
