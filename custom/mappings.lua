@@ -52,8 +52,8 @@ M.lspconfig = {
     },
   },
   n = {
-    ["g0"] = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", "List document symbols" },
     ["gw"] = { "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "List worksapce symbols" },
+    ["gs"] = { ":ClangdSwitchSourceHeader<CR>", "List worksapce symbols" },
   },
 }
 
