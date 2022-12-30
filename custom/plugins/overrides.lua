@@ -5,7 +5,7 @@ M.mason = {
     "lua-language-server",
     "stylua",
     -- shell
-    "shfmt",
+    "beautysh",
     "shellcheck",
     -- C/C++
     "clangd",
