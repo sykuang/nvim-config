@@ -28,10 +28,15 @@ return {
       require("custom.plugins.lastplace").setup()
     end,
   },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
+  -- ["jose-elias-alvarez/null-ls.nvim"] = {
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require "custom.plugins.null-ls"
+  --   end,
+  -- },
+  ["mhartington/formatter.nvim"] = {
     config = function()
-      require "custom.plugins.null-ls"
+      require("custom.plugins.formatter").setup()
     end,
   },
   ["bogado/file-line"] = {},
