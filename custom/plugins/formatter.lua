@@ -42,7 +42,12 @@ function M.setup()
           }
         end,
       },
-
+      python = {
+        require("formatter.filetypes.python").black,
+      },
+      sh = {
+        require("formatter.filetypes.sh").shfmt,
+      },
       -- Use the special "*" filetype for defining formatter configurations on
       -- any filetype
       ["*"] = {
