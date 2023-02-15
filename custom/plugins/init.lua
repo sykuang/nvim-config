@@ -4,6 +4,11 @@ return {
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
   },
+  ["williamboman/mason-lspconfig.nvim"] = {
+    config = function()
+      require("mason-lspconfig").setup()
+    end
+  },
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline,
   },
