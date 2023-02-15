@@ -16,9 +16,6 @@ return {
       require "custom.plugins.lspconfig"
     end,
   },
-  ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = overrides.treesitter,
-  },
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
@@ -60,9 +57,6 @@ return {
     end,
   },
   ["chooh/brightscript.vim"] = {},
-  ["kyazdani42/nvim-tree.lua"] = {
-    event = "BufWinEnter",
-  },
   ["lewis6991/spellsitter.nvim"] = {
     config = function()
       require("spellsitter").setup()
