@@ -3,11 +3,11 @@ return {
   ----------------------------------------- default plugins ------------------------------------------
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
-  },
-  ["williamboman/mason-lspconfig.nvim"] = {
-    config = function()
-      require("mason-lspconfig").setup()
-    end
+    init = function()
+      if vim.loop.os_uname().sysname == "windows" then
+        table.insert(overrides.mason.ensure_installed, "powershell-editor-services")
+      end
+    end,
   },
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline,
@@ -24,32 +24,27 @@ return {
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
+  ["folke/which-key.nvim"] = { enabled = true },
   --------------------------------------------- custom plugins ----------------------------------------------
   ["ethanholz/nvim-lastplace"] = {
-    config = function()
-      require("custom.plugins.lastplace").setup()
-    end,
+    config = true,
+    lazy = false,
   },
-  -- ["jose-elias-alvarez/null-ls.nvim"] = {
-  --   after = "nvim-lspconfig",
-  --   config = function()
-  --     require "custom.plugins.null-ls"
-  --   end,
-  -- },
   ["mhartington/formatter.nvim"] = {
     config = function()
       require("custom.plugins.formatter").setup()
     end,
+    cmd = "Format",
   },
-  ["bogado/file-line"] = {},
+  ["bogado/file-line"] = { lazy = false },
   ["nathom/filetype.nvim"] = {
     config = function()
       require("custom.plugins.filetype").setup()
     end,
   },
   ["AckslD/nvim-neoclip.lua"] = {
-    opt = false,
-    requires = {
+    lazy = false,
+    dependencies = {
       { "nvim-telescope/telescope.nvim" },
     },
     config = function()
@@ -57,9 +52,7 @@ return {
     end,
   },
   ["simrat39/symbols-outline.nvim"] = {
-    config = function()
-      require("symbols-outline").setup {}
-    end,
+    config = true,
   },
   ["chooh/brightscript.vim"] = {},
   ["lewis6991/spellsitter.nvim"] = {
@@ -67,11 +60,8 @@ return {
       require("spellsitter").setup()
     end,
   },
-  ["folke/which-key.nvim"] = {
-    disable = false,
-  },
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
-    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   ["ntpeters/vim-better-whitespace"] = {},
   ["nmac427/guess-indent.nvim"] = {

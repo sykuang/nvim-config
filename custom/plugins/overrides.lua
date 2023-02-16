@@ -27,8 +27,6 @@ M.mason = {
     "grammarly-languageserver",
     -- spell
     "codespell",
-    -- powershell
-    "powershell-editor-services",
   },
 }
 
@@ -86,6 +84,6 @@ M.telescope = {
       find_cmd = "rg", -- find command (defaults to `fd`)
     },
   },
-  extensions_list = { "themes", "terms", "fzf", "fzy_native" },
+  extensions_list = { "themes", "terms", "fzf" },
 }
 return M

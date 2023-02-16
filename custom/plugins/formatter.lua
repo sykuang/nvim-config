@@ -48,6 +48,9 @@ function M.setup()
       sh = {
         require("formatter.filetypes.sh").shfmt,
       },
+      json = {
+        require("formatter.filetypes.json").fixjson,
+      },
       -- Use the special "*" filetype for defining formatter configurations on
       -- any filetype
       ["*"] = {
