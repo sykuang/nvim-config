@@ -4,4 +4,4 @@ opt.mouse = "v"
 -- set spelllang=en,cjk
 -- set spellsuggest=best,9
 -- ]]
-vim.opt.clipboard = ""
+opt.clipboard = ""
