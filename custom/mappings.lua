@@ -1,10 +1,3 @@
-vim.cmd [[
-  cnoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-  cnoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-  cnoremap <expr> <Right> pumvisible() ? "\<Down>" : "\<Right>"
-  cnoremap <expr> <Left> pumvisible() ? "\<Up>" : "\<Left>"
-]]
-
 local M = {}
 
 M.telescope = {

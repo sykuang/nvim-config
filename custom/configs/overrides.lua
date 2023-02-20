@@ -86,6 +86,7 @@ M.telescope = {
   },
   extensions_list = { "themes", "terms", "fzf" },
 }
+local cmp = require "cmp"
 M.cmp = {
   -- preselect = cmp.PreselectMode.None,
   sources = {
@@ -95,6 +96,10 @@ M.cmp = {
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
+  },
+  mapping = {
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
   },
 }
 return M
