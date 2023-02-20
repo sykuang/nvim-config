@@ -40,7 +40,7 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
-      filetypes = { "markdown", "COMMIT_EDITMSG" },
+      filetypes = { "markdown", "gitcommit" },
     }
   elseif lsp == "clangd" then
     local clangd_capabilities = capabilities

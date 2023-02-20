@@ -56,8 +56,9 @@ local plugins = {
   { "bogado/file-line", lazy = false },
   {
     "nathom/filetype.nvim",
+    lazy = false,
     config = function()
-      require("custom.configs.filetype").setup()
+      require("custom.configs.filetype")
     end,
   },
   {
@@ -67,7 +68,7 @@ local plugins = {
       { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-      require("custom.configs.neoclip").setup()
+      require("custom.configs.neoclip")
     end,
   },
   { "simrat39/symbols-outline.nvim", config = true },
@@ -84,7 +85,7 @@ local plugins = {
   {
     "nmac427/guess-indent.nvim",
     config = function()
-      require("custom.configs.guess-indent").setup()
+      require("custom.configs.guess-indent")
     end,
   },
   {

@@ -1,26 +1,22 @@
 local ok, neoclip = pcall(require, "neoclip")
 if not ok then
-   return
+  return
 end
-local M = {}
-function M.setup()
-   neoclip.setup {
-      keys = {
-         telescope = {
-            i = {
-               select = "<cr>",
-               paste = "<c-p>",
-               paste_behind = "<c-k>",
-               custom = {},
-            },
-            n = {
-               select = "<cr>",
-               paste = "p",
-               paste_behind = "P",
-               custom = {},
-            },
-         },
+neoclip.setup {
+  keys = {
+    telescope = {
+      i = {
+        select = "<cr>",
+        paste = "<c-p>",
+        paste_behind = "<c-k>",
+        custom = {},
       },
-   }
-end
-return M
+      n = {
+        select = "<cr>",
+        paste = "p",
+        paste_behind = "P",
+        custom = {},
+      },
+    },
+  },
+}
