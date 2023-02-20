@@ -3,7 +3,7 @@ local plugins = {
   ----------------------------------------- default plugin ------------------------------------------
   {
     "williamboman/mason.nvim",
-    override_options = overrides.mason,
+    opts = overrides.mason,
     init = function()
       if vim.loop.os_uname().sysname == "windows" then
         table.insert(overrides.mason.ensure_installed, "powershell-editor-services")
@@ -12,7 +12,7 @@ local plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    override_options = overrides.blankline,
+    opts = overrides.blankline,
   },
   { "lewis6991/gitsigns.nvim", override_options = overrides.gitsigns },
   {
@@ -24,6 +24,10 @@ local plugins = {
   },
   { "nvim-telescope/telescope.nvim", override_options = overrides.telescope },
   { "folke/which-key.nvim", enabled = true },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  },
   --------------------------------------------- custom plugins ----------------------------------------------
   { "ethanholz/nvim-lastplace", config = true, lazy = false },
   {
@@ -54,9 +58,7 @@ local plugins = {
   { "chooh/brightscript.vim" },
   {
     "lewis6991/spellsitter.nvim",
-    config = function()
-      require("spellsitter").setup()
-    end,
+    config = true,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -69,6 +71,19 @@ local plugins = {
       require("custom.configs.guess-indent").setup()
     end,
   },
-  { "zbirenbaum/copilot.lua", config = true, cmd = "Copilot", event = "InsertEnter" },
+  {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require "custom.configs.copilot"
+    end,
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = true,
+    event = "InsertEnter",
+  },
 }
 return plugins
