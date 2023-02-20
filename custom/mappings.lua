@@ -37,12 +37,12 @@ M.neoclip = {
 M.lspconfig = {
   plugin = false,
   v = {
-    -- ["<leader>fm"] = {
-    --   function()
-    --     vim.lsp.buf.format { async = true }
-    --   end,
-    --   "range formatting",
-    -- },
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "range formatting",
+    },
   },
   n = {
     ["gw"] = { "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "List worksapce symbols" },
@@ -64,10 +64,10 @@ M.misc = {
       end,
       "nvterm lazygit",
     },
-    ["<leader>fm"] = { ":Format<CR>", "formatting" },
+    -- ["<leader>fm"] = { ":Format<CR>", "formatting" },
   },
   v = {
-    ["<leader>fm"] = { ":'<,'>Format<CR>", "range formatting" },
+    -- ["<leader>fm"] = { ":'<,'>Format<CR>", "range formatting" },
   },
 }
 

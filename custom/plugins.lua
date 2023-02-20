@@ -14,29 +14,45 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     opts = overrides.blankline,
   },
-  { "lewis6991/gitsigns.nvim", override_options = overrides.gitsigns },
+  { "lewis6991/gitsigns.nvim", opts = overrides.gitsigns },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
   },
-  { "nvim-telescope/telescope.nvim", override_options = overrides.telescope },
+  { "nvim-telescope/telescope.nvim", opts = overrides.telescope },
   { "folke/which-key.nvim", enabled = true },
   {
     "hrsh7th/nvim-cmp",
     opts = overrides.cmp,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+    -- Force set zsh as bash even it's bad for zsh.
+    init = function()
+      require("nvim-treesitter.parsers").filetype_to_parsername["zsh"] = "bash"
+    end,
+  },
   --------------------------------------------- custom plugins ----------------------------------------------
   { "ethanholz/nvim-lastplace", config = true, lazy = false },
-  {
-    "mhartington/formatter.nvim",
-    config = function()
-      require("custom.configs.formatter").setup()
-    end,
-    cmd = "Format",
-  },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   config = function()
+  --     require("custom.configs.formatter").setup()
+  --   end,
+  --   cmd = "Format",
+  -- },
   { "bogado/file-line", lazy = false },
   {
     "nathom/filetype.nvim",
