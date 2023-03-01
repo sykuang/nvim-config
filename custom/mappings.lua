@@ -76,5 +76,14 @@ M.SymbolsOutline = {
     ["<leader>tb"] = { ":SymbolsOutline<CR>", "Toggle Symbol outline" },
   },
 }
-
+if vim.loop.os_uname().sysname == "Windows_NT" then
+  M.Windows_NT = {
+    n = {
+      ["<C-z>"] = { "<nop>", "NOP" },
+    },
+    v = {
+      ["<C-z>"] = { "<nop>", "NOP" },
+    },
+  }
+end
 return M
