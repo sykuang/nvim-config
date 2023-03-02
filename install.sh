@@ -10,4 +10,3 @@ if [[ ! -d  ~/.config/nvim ]];then
 fi
 rm -rf ~/.config/nvim/lua/custom
 ln -s "$SCRIPT_PATH/custom" ~/.config/nvim/lua/custom
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
