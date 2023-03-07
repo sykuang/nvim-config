@@ -1,10 +1,15 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+local ok, lspconfig = pcall(require, "lspconfig")
+
+if not ok then
+  return
+end
 
 -- lspservers with default config
-local servers = { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls", "dockerls", "grammarly","powershell_es" }
+local servers =
+  { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls", "dockerls", "grammarly", "powershell_es" }
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
     lspconfig[lsp].setup {
@@ -53,8 +58,8 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
-      bundle_path = '~/AppData/Local/nvim-data/mason/packages/powershell-editor-services',
-      shell = 'C:/Program Files/PowerShell/7/pwsh.exe',
+      bundle_path = "~/AppData/Local/nvim-data/mason/packages/powershell-editor-services",
+      shell = "C:/Program Files/PowerShell/7/pwsh.exe",
     }
   else
     lspconfig[lsp].setup {

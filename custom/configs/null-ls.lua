@@ -5,7 +5,13 @@ if not ok then
 end
 
 local b = null_ls.builtins
-
+local function get_stylua()
+  if vim.loop.os_uname().version:match "Windows" then
+    return vim.fn.expand "~/AppData/Local/nvim/.stylua.toml"
+  else
+    return vim.fn.expand "~/.config/nvim/.stylua.toml"
+  end
+end
 local sources = {
 
   -- JS html css stuff
@@ -19,7 +25,7 @@ local sources = {
 
   -- Lua
   b.formatting.stylua.with {
-    extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/.stylua.toml" },
+    extra_args = { "--config-path", get_stylua() },
   },
   -- b.diagnostics.luacheck,
 

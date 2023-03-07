@@ -5,7 +5,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
     init = function()
-      if vim.loop.os_uname().sysname == "windows" then
+      if vim.loop.os_uname().version:match "Windows" then
         table.insert(overrides.mason.ensure_installed, "powershell-editor-services")
       end
     end,
@@ -58,7 +58,7 @@ local plugins = {
     "nathom/filetype.nvim",
     lazy = false,
     config = function()
-      require("custom.configs.filetype")
+      require "custom.configs.filetype"
     end,
   },
   {
@@ -68,7 +68,7 @@ local plugins = {
       { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-      require("custom.configs.neoclip")
+      require "custom.configs.neoclip"
     end,
   },
   { "simrat39/symbols-outline.nvim", config = true },
@@ -85,7 +85,7 @@ local plugins = {
   {
     "nmac427/guess-indent.nvim",
     config = function()
-      require("custom.configs.guess-indent")
+      require "custom.configs.guess-indent"
     end,
   },
   {
