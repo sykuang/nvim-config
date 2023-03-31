@@ -53,7 +53,7 @@ M.lspconfig = {
 M.misc = {
   n = {
     ["<leader>ct"] = {
-      "<cmd>lua require('custom.plugins.clipboardToggle').Toggle()<CR>",
+      "<cmd>lua require('custom.configs.clipboardToggle').Toggle()<CR>",
       "Toggle buffer to clipboard",
     },
     ["<leader>i"] = { ":IndentBlanklineToggle<CR>", "Toggle Indent blank lines" },
