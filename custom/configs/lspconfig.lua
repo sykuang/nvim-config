@@ -6,13 +6,22 @@ local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then
   return
 end
-
+local function is_windows()
+  return vim.loop.os_uname().version:match "Windows"
+end
 -- lspservers with default config
 local servers =
   { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls", "dockerls", "grammarly", "powershell_es" }
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
+    local cmd
+    if is_windows() then
+      cmd = { "pylsp.cmd" }
+    else
+      cmd = { "pylsp" }
+    end
     lspconfig[lsp].setup {
+      cmd = cmd,
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -27,20 +36,21 @@ for _, lsp in ipairs(servers) do
       },
     }
   elseif lsp == "sourcery" then
-    local sourcery_token = os.getenv "SOURCERY_TOKEN"
-    if sourcery_token ~= "" then
-      lspconfig[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        init_options = {
-          token = sourcery_token,
-          editor_version = "vim",
-          extension_version = "vim.lsp",
-        },
-      }
+    local cmd
+    if is_windows() then
+      cmd = { "sourcery.cmd", "lsp" }
     else
-      print "Please add SOURCERY_TOKEN to Environment for using sourcery."
+      cmd = { "sourcery", "lsp" }
     end
+    lspconfig[lsp].setup {
+      cmd = cmd,
+      on_attach = on_attach,
+      capabilities = capabilities,
+      init_options = {
+        editor_version = "vim",
+        extension_version = "vim.lsp",
+      },
+    }
   elseif lsp == "grammarly" then
     lspconfig[lsp].setup {
       on_attach = on_attach,

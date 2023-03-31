@@ -12,6 +12,13 @@ local function get_stylua()
     return vim.fn.expand "~/.config/nvim/.stylua.toml"
   end
 end
+local function get_black_cmd()
+  if vim.loop.os_uname().version:match "Windows" then
+    return "black.cmd"
+  else
+    return "black"
+  end
+end
 local sources = {
 
   -- JS html css stuff
@@ -39,6 +46,7 @@ local sources = {
   -- python
   b.formatting.black.with {
     filetypes = { "python" },
+    command = get_black_cmd(),
   },
 
   -- c/c++
@@ -55,6 +63,6 @@ local sources = {
 }
 
 null_ls.setup {
-  debug = true,
+  -- debug = true,
   sources = sources,
 }
