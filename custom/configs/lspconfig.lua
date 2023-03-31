@@ -28,7 +28,7 @@ for _, lsp in ipairs(servers) do
         pylsp = {
           plugins = {
             pycodestyle = {
-              ignore = { "W391" },
+              ignore = { "W391", "E203" },
               maxLineLength = 88,
             },
           },
