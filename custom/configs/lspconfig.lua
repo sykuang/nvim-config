@@ -10,8 +10,18 @@ local function is_windows()
   return vim.loop.os_uname().version:match "Windows"
 end
 -- lspservers with default config
-local servers =
-  { "clangd", "yamlls", "pylsp", "sourcery", "bashls", "jsonls", "dockerls", "grammarly", "powershell_es" }
+local servers = {
+  "clangd",
+  "yamlls",
+  "pylsp",
+  "sourcery",
+  "bashls",
+  "jsonls",
+  "dockerls",
+  "grammarly",
+  "powershell_es",
+  "tsserver",
+}
 for _, lsp in ipairs(servers) do
   if lsp == "pylsp" then
     local cmd

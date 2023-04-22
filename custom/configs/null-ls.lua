@@ -23,7 +23,7 @@ local sources = {
 
   -- JS html css stuff
   b.formatting.prettierd.with {
-    filetypes = { "html", "markdown", "css", "javascript", "javascriptreact", "typescript", "yaml" },
+    filetypes = { "html", "markdown", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "yaml" },
   },
   b.diagnostics.tsc,
 

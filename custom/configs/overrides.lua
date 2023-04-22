@@ -29,6 +29,8 @@ M.mason = {
     "grammarly-languageserver",
     -- spell
     "codespell",
+    -- typescript
+    "typescript-language-server",
   },
 }
 
