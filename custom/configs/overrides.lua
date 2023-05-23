@@ -69,7 +69,6 @@ M.treesitter = {
     "diff",
     "git_rebase",
     "gitattributes",
-    "help",
     "jsonc",
     "dockerfile",
   },

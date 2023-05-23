@@ -40,9 +40,6 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
     -- Force set zsh as bash even it's bad for zsh.
-    init = function()
-      require("nvim-treesitter.parsers").filetype_to_parsername["zsh"] = "bash"
-    end,
   },
   --------------------------------------------- custom plugins ----------------------------------------------
   { "ethanholz/nvim-lastplace", config = true, lazy = false },
@@ -79,7 +76,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build = "make",
   },
   { "ntpeters/vim-better-whitespace" },
   {
