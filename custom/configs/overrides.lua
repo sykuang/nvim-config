@@ -103,6 +103,13 @@ M.cmp = {
   mapping = {
     ["<Up>"] = cmp.mapping.select_prev_item(),
     ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Tab>"] = function(callback)
+      callback()
+    end,
+
+    ["<S-Tab>"] = function(callback)
+      callback()
+    end,
   },
 }
 return M
