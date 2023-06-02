@@ -7,8 +7,8 @@ end
 f.setup {
   overrides = {
     extensions = {
-      -- Set the filetype of *.pn files to potion
       zshrc = "zsh",
+      proj = "proj", -- Vistual Studio Project
     },
     complex = {
       -- Set the filetype of any full filename matching the regex to gitconfig

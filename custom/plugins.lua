@@ -41,6 +41,14 @@ local plugins = {
     opts = overrides.treesitter,
     -- Force set zsh as bash even it's bad for zsh.
   },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+      local ft = require "Comment.ft"
+      ft.set("proj", ft.get "xml")
+    end,
+  },
   --------------------------------------------- custom plugins ----------------------------------------------
   { "ethanholz/nvim-lastplace", config = true, lazy = false },
   -- {
