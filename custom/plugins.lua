@@ -59,13 +59,13 @@ local plugins = {
   --   cmd = "Format",
   -- },
   { "bogado/file-line", lazy = false },
-  {
-    "nathom/filetype.nvim",
-    lazy = false,
-    config = function()
-      require "custom.configs.filetype"
-    end,
-  },
+  -- {
+  --   "nathom/filetype.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require "custom.configs.filetype"
+  --   end,
+  -- },
   {
     "AckslD/nvim-neoclip.lua",
     lazy = false,
@@ -76,7 +76,7 @@ local plugins = {
       require "custom.configs.neoclip"
     end,
   },
-  { "simrat39/symbols-outline.nvim", config = true },
+  { "simrat39/symbols-outline.nvim", config = true, cmd = "SymbolsOutline" },
   { "chooh/brightscript.vim" },
   {
     "lewis6991/spellsitter.nvim",
@@ -84,7 +84,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   { "ntpeters/vim-better-whitespace" },
   {
