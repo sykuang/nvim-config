@@ -5,7 +5,7 @@ require("copilot").setup {
   },
   panel = { enabled = false },
   filetypes = {
-    yaml = false,
+    yaml = true,
     markdown = true,
     help = false,
     gitcommit = true,

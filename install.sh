@@ -5,8 +5,8 @@ set -o errexit    # exit when command fails
 
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-if [[ ! -d  ~/.config/nvim ]];then
-  git clone https://github.com/NvChad/NvChad ~/.config/nvim
+if [[ -d  ~/.config/nvim ]];then
+  rm -rf ~/.config/nvim
+  rm -rf ~/.local/share/nvim
 fi
-rm -rf ~/.config/nvim/lua/custom
-ln -s "$SCRIPT_PATH/custom" ~/.config/nvim/lua/custom
+ln -s "$SCRIPT_PATH" ~/.config/nvim/
