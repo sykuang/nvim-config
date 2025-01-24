@@ -2,6 +2,7 @@ local M = {}
 M.mason = {
   ensure_installed = {
     -- lua stuff
+    "codespell",
     "lua-language-server",
     "stylua",
     -- shell
@@ -11,7 +12,6 @@ M.mason = {
     -- C/C++
     "clangd",
     -- python
-    "sourcery",
     "python-lsp-server",
     "black",
     -- bashls
@@ -25,24 +25,14 @@ M.mason = {
     -- Dockerfile
     "hadolint",
     "dockerfile-language-server",
-    -- grammarly
-    "grammarly-languageserver",
     -- spell
-    "codespell",
     -- typescript
     "typescript-language-server",
   },
 }
 
 M.gitsigns = {
-  current_line_blame = true,
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-    delay = 500,
-    ignore_whitespace = false,
-  },
-  current_line_blame_formatter = "<abbrev_sha> <author>, <author_time:%Y-%m-%d> - <summary>",
+
 }
 
 M.blankline = {
