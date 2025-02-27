@@ -57,7 +57,7 @@ local plugins = {
 				["<Tab>"] = function(callback)
 					callback()
 				end,
-
+        ["<C-l>"] = cmp.mapping.confirm(),
 				["<S-Tab>"] = function(callback)
 					callback()
 				end,
