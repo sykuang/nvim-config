@@ -115,10 +115,6 @@ local plugins = {
 		"lewis6991/spellsitter.nvim",
 		config = true,
 	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	},
 	{ "ntpeters/vim-better-whitespace" },
 	{
 		"nmac427/guess-indent.nvim",
@@ -139,6 +135,17 @@ local plugins = {
 		after = { "copilot.lua" },
 		config = true,
 		event = "InsertEnter",
+	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" },
+			{ "nvim-lua/plenary.nvim", branch = "master" },
+		},
+		opts = {
+		-- See Configuration section for options
+		},
+		cmd = {"CopilotChat","CopilotChatToggle"}
 	},
 }
 return plugins

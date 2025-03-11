@@ -63,5 +63,4 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   map("n", "<C-z>", "<nop>", { desc = "Disable Windows C-z" })
   map("v", "<C-z>", "<nop>", { desc = "Disable Windows C-z" })
 end
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "<M-i>", ":CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
