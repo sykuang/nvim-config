@@ -57,7 +57,7 @@ local plugins = {
 				["<Tab>"] = function(callback)
 					callback()
 				end,
-        ["<C-l>"] = cmp.mapping.confirm(),
+				["<C-l>"] = cmp.mapping.confirm(),
 				["<S-Tab>"] = function(callback)
 					callback()
 				end,
@@ -143,9 +143,12 @@ local plugins = {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		opts = {
-		-- See Configuration section for options
+			model = "claude-3.5-sonnet",
+			show_diff = {
+				full_diff = true,
+			},
 		},
-		cmd = {"CopilotChat","CopilotChatToggle"}
+		cmd = { "CopilotChat", "CopilotChatToggle" },
 	},
 }
 return plugins
