@@ -1,6 +1,5 @@
 -- load defaults i.e lua_lsp
 local nvlsp = require "nvchad.configs.lspconfig"
-local lspconfig = require "lspconfig"
 
 nvlsp.defaults() -- loads nvchad's defaults
 
@@ -15,20 +14,4 @@ if is_windows() then
 else
     table.insert(servers, "bashls")
 end
-for _, lsp in ipairs(servers) do
-    if lsp == "powershell_es" then
-        lspconfig[lsp].setup({
-            on_attach = nvlsp.on_attach,
-            on_init = nvlsp.on_init,
-            capabilities = nvlsp.capabilities,
-            cmd = {'pwsh', '-NoLogo', '-NoProfile', '-Command',
-                   [[& "$HOME\.PSES\PowerShellEditorServices\Start-EditorServices.ps1"]]}
-        })
-    else
-        lspconfig[lsp].setup({
-            on_attach = nvlsp.on_attach,
-            on_init = nvlsp.on_init,
-            capabilities = nvlsp.capabilities
-        })
-    end
-end
+vim.lsp.enable(servers)
