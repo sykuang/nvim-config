@@ -14,6 +14,10 @@ M.base46 = {
 	-- },
 }
 
+M.term = {
+	float = { row = 0.05, col = 0.05, width = 0.9, height = 0.9 },
+}
+
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
 --       tabufline = {

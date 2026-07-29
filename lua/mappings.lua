@@ -57,6 +57,12 @@ map(
 )
 map("n", "<leader>i", ":IndentBlanklineToggle<CR>", { desc = "Toggle Indent blank lines" })
 map("n", "<leader>sp", ":set spell!<CR>", { desc = "Toggle spell checking" })
+map({ "n", "t" }, "<leader>tt", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+end, { desc = "Toggle floating terminal" })
+map({ "n", "t" }, "<leader>tc", function()
+  require("nvchad.term").toggle { pos = "float", id = "copilot", cmd = "copilot --yolo" }
+end, { desc = "Toggle Copilot CLI" })
 -- map({ "n", "i", "v" }) "<C-s>", "<cmd> w <cr>")
 -- Windows specific mappings
 if vim.loop.os_uname().sysname == "Windows_NT" then
