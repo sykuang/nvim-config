@@ -9,6 +9,7 @@ end
 -- lspservers with default config
 local servers = {"clangd", "yamlls", "pylsp", "jsonls", "dockerls", "ts_ls"}
 if is_windows() then
+    vim.lsp.config("powershell_es", { bundle_path = vim.fn.expand("~/.PSES") })
     table.insert(servers, "powershell_es")
     table.insert(servers, "csharp_ls")
 else
