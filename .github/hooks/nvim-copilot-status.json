@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('unlet! g:copilot_status | redrawstatus')\" | Out-Null }"
+      }
+    ],
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('let g:copilot_status = ''thinking'' | redrawstatus')\" | Out-Null }"
+      }
+    ],
+    "permissionRequest": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('if exists(''g:copilot_status'') | let g:copilot_status = ''waiting'' | redrawstatus | endif')\" | Out-Null }"
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('if exists(''g:copilot_status'') | let g:copilot_status = ''running'' | redrawstatus | endif')\" | Out-Null }"
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('if exists(''g:copilot_status'') | let g:copilot_status = ''thinking'' | redrawstatus | endif')\" | Out-Null }"
+      }
+    ],
+    "postToolUseFailure": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('if exists(''g:copilot_status'') | let g:copilot_status = ''error'' | redrawstatus | endif')\" | Out-Null }"
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('unlet! g:copilot_status | redrawstatus')\" | Out-Null }"
+      }
+    ],
+    "errorOccurred": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('if exists(''g:copilot_status'') | let g:copilot_status = ''error'' | redrawstatus | endif')\" | Out-Null }"
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "powershell": "if ($env:NVIM) { nvim --server $env:NVIM --remote-expr \"execute('unlet! g:copilot_status | redrawstatus')\" | Out-Null }"
+      }
+    ]
+  }
+}

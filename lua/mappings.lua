@@ -61,7 +61,7 @@ map({ "n", "t" }, "<leader>tt", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Toggle floating terminal" })
 map({ "n", "t" }, "<leader>cc", function()
-  require("nvchad.term").toggle { pos = "float", id = "copilot", cmd = "copilot --yolo" }
+  require("nvchad.term").toggle { pos = "float", id = "copilot", cmd = "copilot --yolo; exit" }
 end, { desc = "Toggle Copilot CLI" })
 -- map({ "n", "i", "v" }) "<C-s>", "<cmd> w <cr>")
 -- Windows specific mappings
