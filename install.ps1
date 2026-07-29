@@ -2,7 +2,9 @@ $REPO_URL = "https://github.com/sykuang/nvim-config.git"
 $REMOTE_SCRIPT_URL = "https://raw.githubusercontent.com/sykuang/nvim-config/main/install.ps1"
 $DEFAULT_CLONE_PATH = Join-Path $HOME "nvim-config"
 $NVCHAD_PATH = "$HOME\AppData\Local\nvim"
-$PSES_URL = "https://github.com/PowerShell/PowerShellEditorServices/releases/download/v4.2.0/PowerShellEditorServices.zip"
+$COPILOT_HOME = if ($env:COPILOT_HOME) { $env:COPILOT_HOME } else { Join-Path $HOME ".copilot" }
+$COPILOT_HOOK_PATH = Join-Path $COPILOT_HOME "hooks\nvim-copilot-status.json"
+$PSES_URL = "https://github.com/PowerShell/PowerShellEditorServices/releases/download/v4.7.0/PowerShellEditorServices.zip"
 $PSES_ZIP = Join-Path $HOME "Downloads\PowerShellEditorServices.zip"
 $PSES_FOLDER = Join-Path $HOME ".PSES"
 
@@ -50,4 +52,12 @@ if (-not (Test-Path $NVCHAD_PATH)) {
     New-Item -ItemType SymbolicLink -Path $NVCHAD_PATH -Target "$SCRIPT_FOLDER\" | Out-Null
 } else {
     Write-Host "$NVCHAD_PATH already exists, skipping symlink creation."
+}
+
+New-Item -ItemType Directory -Path (Split-Path $COPILOT_HOOK_PATH -Parent) -Force | Out-Null
+
+if (-not (Test-Path $COPILOT_HOOK_PATH)) {
+    New-Item -ItemType SymbolicLink -Path $COPILOT_HOOK_PATH -Target (Join-Path $SCRIPT_FOLDER ".github\hooks\nvim-copilot-status.json") | Out-Null
+} else {
+    Write-Host "$COPILOT_HOOK_PATH already exists, skipping symlink creation."
 }

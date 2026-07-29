@@ -18,6 +18,7 @@ The script will:
 2. Re-launch itself with Administrator privileges (required for the symlink).
 3. Download PowerShellEditorServices to `$HOME\.PSES`.
 4. Create a symbolic link from `$HOME\AppData\Local\nvim` to the cloned repo.
+5. Symlink the Neovim status hook into `$COPILOT_HOME\hooks` (or `$HOME\.copilot\hooks`).
 
 Alternatively, clone the repo first and run the script locally:
 
@@ -40,3 +41,5 @@ Or clone the repo first and run the script locally:
 git clone https://github.com/sykuang/nvim-config.git ~/nvim-config
 ~/nvim-config/install.sh
 ```
+
+The script also symlinks the Neovim status hook into `$COPILOT_HOME/hooks` (or `$HOME/.copilot/hooks`).

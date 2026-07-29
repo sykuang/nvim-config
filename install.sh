@@ -7,6 +7,8 @@ set -o pipefail
 REPO_URL="https://github.com/sykuang/nvim-config.git"
 DEFAULT_CLONE_PATH="$HOME/nvim-config"
 NVIM_CONFIG_PATH="$HOME/.config/nvim"
+COPILOT_HOME="${COPILOT_HOME:-$HOME/.copilot}"
+COPILOT_HOOK_PATH="$COPILOT_HOME/hooks/nvim-copilot-status.json"
 
 # Detect whether we're being run from a local checkout or piped from curl.
 # When piped (e.g. `curl ... | bash`), $0 is "bash" and there is no script file,
@@ -35,4 +37,13 @@ if [ -e "$NVIM_CONFIG_PATH" ] || [ -L "$NVIM_CONFIG_PATH" ]; then
 else
     ln -s "$SCRIPT_PATH/" "$NVIM_CONFIG_PATH"
     echo "Symlinked $NVIM_CONFIG_PATH -> $SCRIPT_PATH"
+fi
+
+mkdir -p "$COPILOT_HOME/hooks"
+
+if [ -e "$COPILOT_HOOK_PATH" ] || [ -L "$COPILOT_HOOK_PATH" ]; then
+    echo "$COPILOT_HOOK_PATH already exists, skipping symlink creation."
+else
+    ln -s "$SCRIPT_PATH/.github/hooks/nvim-copilot-status.json" "$COPILOT_HOOK_PATH"
+    echo "Symlinked $COPILOT_HOOK_PATH -> $SCRIPT_PATH/.github/hooks/nvim-copilot-status.json"
 fi
